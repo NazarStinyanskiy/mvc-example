@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Editing</title>
+    <style>
+        H1 {
+            padding-left: 500px;
+            padding-right: 500px;
+        }
+
+        DIV {
+            padding-left: 500px;
+            padding-right: 500px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 th:text="'Editing ' + ${product.getName()}"></h1>
+    <div>
+        <form th:action="@{/products/{id}(id=${product.getId()})}" th:method="patch" th:object="${product}">
+            <label for="name">Name: </label>
+            <input th:type="text" th:field="*{name}" name="name" id="name">
+
+            <br>
+
+            <label for="amount">Amount: </label>
+            <input th:type="text" th:field="*{amount}" name="amount" id="amount">
+
+            <br>
+
+            <label for="cost">Cost: </label>
+            <input th:type="text" th:field="*{cost}" name="cost" id="cost">
+
+            <br>
+
+            <p>
+                <input type="submit" value="Edit">
+                <input type="reset" value="Undo">
+            </p>
+        </form>
+    </div>
+</body>
+</html>

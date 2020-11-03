@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>New Product</title>
+
+    <style>
+        DIV {
+            padding-left: 500px;
+            padding-right: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form th:method="post" th:action="@{/products/successCreation}" th:object="${product}">
+            <label for="name">Enter name: </label>
+            <input name="name" type="text" id="name" th:field="*{name}"/>
+
+            <br>
+
+            <label for="amount">Enter amount: </label>
+            <input name="amount" type="text"  id="amount" th:field="*{amount}">
+
+            <br>
+
+            <label for="cost">Enter cost: </label>
+            <input name="cost" type="text" id="cost" th:field="*{cost}">
+
+            <br>
+
+            <input type="submit" value="Add product"/>
+        </form>
+    </div>
+</body>
+</html>

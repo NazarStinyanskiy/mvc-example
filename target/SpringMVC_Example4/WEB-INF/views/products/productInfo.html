@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+    <style>
+        DIV {
+            padding-left: 500px;
+            padding-right: 500px;
+            font-size: 20px;
+        }
+
+        H1 {
+            padding-left: 500px;
+            padding-right: 500px;
+        }
+    </style>
+</head>
+<body>
+    <h1 th:text="${product.getName() + ' information:'}"/>
+
+    <div>
+        <p th:text="'The ID of product is: ' + ${product.getId()}"/>
+        <p th:text="'The NAME of product is: ' + ${product.getName()}"/>
+        <p th:text="'The AMOUNT of product is: ' + ${product.getAmount()}"/>
+        <p th:text="'The COST of product is: ' + ${product.getCost()}"/>
+
+        <br>
+
+        <form th:action="@{/products/{id}/edit(id=${product.getId()})}" th:method="get">
+            <input type="submit" value="Edit">
+        </form>
+
+        <form th:action="@{/products/{id}(id=${product.getId()})}" th:method="DELETE">
+            <input type="submit" value="Delete">
+        </form>
+
+        <br>
+
+        <form th:action="@{/products}" th:method="get">
+            <input type="submit" value="Show all products">
+        </form>
+    </div>
+</body>
+</html>

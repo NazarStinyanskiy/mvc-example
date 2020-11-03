@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>All Products</title>
+    <style>
+        DIV {
+            padding-left: 500px;
+            padding-right: 500px;
+            font-size: 20px;
+        }
+
+        H1 {
+            padding-left: 500px;
+        }
+    </style>
+</head>
+<body>
+    <h1>PRODUCTS</h1>
+
+    <div th:each="product : ${products}">
+        <a th:href="@{/products/{id}(id=${product.getId()})}" th:text="${product.getId() + ' ' + product.getName()}">Value</a>
+    </div>
+    <div>
+        <form action="/products/new" method="get">
+            <input type="submit" value="Add new product">
+        </form>
+    </div>
+</body>
+</html>
